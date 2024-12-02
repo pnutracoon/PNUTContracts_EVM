@@ -7,10 +7,7 @@ import { ethers } from "hardhat";
 const lifePrice = ethers.parseEther("0.00004");
 
 const LockModule = buildModule("BuyLifeContractModule", (m) => {
-  const lock = m.contract("BuyLifeContract", [
-    lifePrice,
-    "0x8A153E4Bc9328813e0f8078cA23171Dc3576068F",
-  ]);
+  const lock = m.contract("BuyLifeContract", [lifePrice, ""]);
   return { lock };
 });
 
