@@ -150,3 +150,5 @@ scripts
 ignition/deployments/chain-31337
 
 ignition/deployments
+
+ignition/modules
