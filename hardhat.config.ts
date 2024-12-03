@@ -16,6 +16,10 @@ if (!process.env.PORT) {
   throw new Error("[PNUT_CONTRACTS]: Provide PORT!");
 }
 
+if (!process.env.ETHERSCAN_API_KEY) {
+  throw new Error("[PNUT_CONTRACTS]: Provide ETHERSCAN_API_KEY!");
+}
+
 const config: HardhatUserConfig = {
   solidity: {
     compilers: [
@@ -32,19 +36,20 @@ const config: HardhatUserConfig = {
   },
   networks: {
     // for mainnet
-    "linea-mainnet": {
+    linea_mainnet: {
       url: `https://linea-mainnet.infura.io/v3/${process.env.INFURA_KEY}`,
       accounts: [process.env.WALLET_KEY as string],
       gasPrice: 1000000000,
+      chainId: 59144,
     },
     // for testnet
-    "linea-sepolia": {
+    linea_sepolia: {
       url: `https://linea-sepolia.infura.io/v3/${process.env.INFURA_KEY}`,
       accounts: [process.env.WALLET_KEY as string],
       gasPrice: 1000000000,
     },
     // for local dev environment
-    "linea-local": {
+    linea_local: {
       url: `http://localhost:${process.env.PORT}`,
       accounts: [process.env.WALLET_KEY as string],
       gasPrice: 1000000000,
@@ -55,6 +60,21 @@ const config: HardhatUserConfig = {
         blockNumber: 12808514,
       },
     },
+  },
+  etherscan: {
+    apiKey: {
+      linea_mainnet: process.env.ETHERSCAN_API_KEY as string,
+    },
+    customChains: [
+      {
+        network: "linea_mainnet",
+        chainId: 59144,
+        urls: {
+          apiURL: "https://api.lineascan.build/api",
+          browserURL: "https://lineascan.build/",
+        },
+      },
+    ],
   },
 };
 

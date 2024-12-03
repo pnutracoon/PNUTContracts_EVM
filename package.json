@@ -5,7 +5,7 @@
     "start-node": "npx hardhat node",
     "main:test": "ts-node scripts/TestBuyingLife.ts",
     "deploy-BLC-localhost": "npx hardhat ignition deploy ./ignition/modules/BuyLifeContract.ts --network localhost --deployment-id BLC-001",
-    "deploy-BLC-mainnet": "npx hardhat ignition deploy ./ignition/modules/BuyLifeContract.ts --network linea-mainnet --deployment-id mainnet-BLC-001",
+    "deploy-BLC-mainnet": "npx hardhat ignition deploy ./ignition/modules/BuyLifeContract.ts --network linea_mainnet --verify --deployment-id mainnet-BLC-003",
     "gen-typechain": "npx hardhat typechain",
     "compile": "npx hardhat compile",
     "remix": "npx remixd -s /Users/macbookpro/projects/SolwalkContracts"
