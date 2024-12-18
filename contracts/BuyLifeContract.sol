@@ -3,15 +3,14 @@ pragma solidity ^0.8.27;
 
 // import "hardhat/console.sol";
 
-import {Ownable} from  "./Ownable.sol";
-import {ReentrancyGuard} from "./ReentrancyGuard.sol";
+import {Ownable} from "./external/openzeppline/Ownable.sol";
+import {ReentrancyGuard} from "./external/openzeppline/ReentrancyGuard.sol";
 
-/// @title BuyLifeContract 
+/// @title BuyLifeContract
 /// @author Racoon Devs
 /// @notice Creates a contract to buy life for game
 
-
-contract BuyLifeContract is Ownable, ReentrancyGuard  {
+contract BuyLifeContract is Ownable, ReentrancyGuard {
     // address public owner;
     uint256 public lifePrice; // Price of a "life" in wei
 
@@ -26,13 +25,17 @@ contract BuyLifeContract is Ownable, ReentrancyGuard  {
         lifePrice = _lifePrice;
     }
 
-
     /// @dev defines a function to buy life
     /// @param _amount amount of life to purchase
 
     // Function to buy a "life"
-    function buyLife(uint256 _amount) external payable nonReentrant returns (bool) {
-        require(msg.value >= (lifePrice * _amount), "Insufficient ETH to buy a life");
+    function buyLife(
+        uint256 _amount
+    ) external payable nonReentrant returns (bool) {
+        require(
+            msg.value >= (lifePrice * _amount),
+            "Insufficient ETH to buy a life"
+        );
 
         // Emit an event for successful purchase
         emit LifePurchased(msg.sender, msg.value);
@@ -56,7 +59,7 @@ contract BuyLifeContract is Ownable, ReentrancyGuard  {
     /// @dev creates a function to set life price
     /// @param _lifePrice price of a "life" in wei
 
-    function setLifePrice(uint256 _lifePrice)  external onlyOwner {
+    function setLifePrice(uint256 _lifePrice) external onlyOwner {
         lifePrice = _lifePrice;
     }
 

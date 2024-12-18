@@ -156,3 +156,10 @@ ignition/modules
 ignition/deployments/mainnet-BLC-002
 
 ignition/deployments/mainnet-BLC-003
+
+scripts
+
+ignition/deployments
+
+
+test/GameManager.ts
