@@ -11,7 +11,8 @@
     "deploy-BLC-mainnet": "npx hardhat ignition deploy ./ignition/modules/BuyLifeContract.ts --network linea_mainnet --verify --deployment-id mainnet-BLC-003",
     "deploy-GM-mainnet": "npx hardhat ignition deploy ./ignition/modules/GameManager.ts --network linea_mainnet --verify --deployment-id mainnet-GM-006",
     "deploy-GM-V2-mainnet": "npx hardhat ignition deploy ./ignition/modules/GameManager.ts --network linea_mainnet --verify --deployment-id mainnet-GM-010",
-    "deploy-RF": "npx hardhat ignition deploy ./ignition/modules/ReferralSystem.ts --network linea_mainnet --deployment-id mainnet-RF-101",
+    "deploy-RF": "npx hardhat ignition deploy ./ignition/modules/ReferralSystem.ts --network linea_mainnet --deployment-id mainnet-RF-105",
+    "deploy-RNS": "npx hardhat ignition deploy ./ignition/modules/RaccoonNames.ts --network linea_mainnet --verify  --deployment-id mainnet-RNS-104",
     "gen-typechain": "npx hardhat typechain",
     "compile": "npx hardhat compile",
     "remix": "npx remixd -s /Users/macbookpro/projects/SolwalkContracts"
@@ -38,5 +39,8 @@
     "ts-node": "^10.9.2",
     "typechain": "^8.3.0",
     "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "redis": "^4.7.0"
   }
 }
